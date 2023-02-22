@@ -1,11 +1,11 @@
-git+https://github.com/ShivamShrirao/diffusers
+safetensors
 triton --install-option='-U --pre'
 accelerate
 transformers
 ftfy
 bitsandbytes==0.35.0
 natsort
-safetensors
 torchvision
 xformers==0.0.17.dev447
 matplotlib
+torch==1.13.1+cu116
