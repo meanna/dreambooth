@@ -1,0 +1,1 @@
+clearml-session --project "Text Classification" --queue "<=48GB" --user-folder ./ --docker nvidia/cuda:11.6.0-cudnn8-runtime-ubuntu20.04 --vscode-server false --jupyter-lab true
