@@ -11,10 +11,18 @@
 from clearml import Task
 
 # note: you need "clearml==0.17.6rc1"
-#Task.add_requirements("./diffusers")
-#accelerate
+Task.add_requirements("./diffusers")
+Task.add_requirements("triton")
+Task.add_requirements("ftfy")
+Task.add_requirements("safetensors")
 Task.add_requirements("accelerate")
-#Task.add_requirements('requirements.txt')
+Task.add_requirements("transformers")
+Task.add_requirements("bitsandbytes", "0.35.0")
+Task.add_requirements("natsort")
+Task.add_requirements("torchvision")
+Task.add_requirements("xformers", "0.0.17.dev447")
+Task.add_requirements("matplotlib")
+Task.add_requirements("torch", "1.13.1+cu116")
 
 
 task = Task.init(
@@ -24,15 +32,15 @@ task = Task.init(
     auto_connect_arg_parser=True,
 )
 
-task.execute_remotely(queue_name="<=12GB", clone=False, exit_process=True)
+task.execute_remotely(queue_name="<=48GB", clone=False, exit_process=True)
 
 import argparse
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--pretrained_model_name_or_path', type=str, required=True, help='Name or path to the pretrained model')
-parser.add_argument('--pretrained_vae_name_or_path', type=str, required=True, help='Name or path to the pretrained VAE model')
-parser.add_argument('--output_dir', type=str, required=True, help='Output directory to save model and samples')
+parser.add_argument('--pretrained_model_name_or_path', type=str, default="runwayml/stable-diffusion-v1-5",required=True, help='Name or path to the pretrained model')
+parser.add_argument('--pretrained_vae_name_or_path', type=str, default="stabilityai/sd-vae-ft-mse", required=True, help='Name or path to the pretrained VAE model')
+parser.add_argument('--output_dir', type=str, default="content/stable_diffusion_weights/bfn", required=True, help='Output directory to save model and samples')
 parser.add_argument('--revision', type=str, default='fp16', help='Revision')
 parser.add_argument('--with_prior_preservation', action='store_true', help='Use prior preservation')
 parser.add_argument('--prior_loss_weight', type=float, default=1.0, help='Weight for prior loss')
