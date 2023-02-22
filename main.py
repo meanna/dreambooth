@@ -38,9 +38,9 @@ import argparse
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--pretrained_model_name_or_path', type=str, default="runwayml/stable-diffusion-v1-5",required=True, help='Name or path to the pretrained model')
-parser.add_argument('--pretrained_vae_name_or_path', type=str, default="stabilityai/sd-vae-ft-mse", required=True, help='Name or path to the pretrained VAE model')
-parser.add_argument('--output_dir', type=str, default="content/stable_diffusion_weights/bfn", required=True, help='Output directory to save model and samples')
+parser.add_argument('--pretrained_model_name_or_path', type=str, default="runwayml/stable-diffusion-v1-5", help='Name or path to the pretrained model')
+parser.add_argument('--pretrained_vae_name_or_path', type=str, default="stabilityai/sd-vae-ft-mse", help='Name or path to the pretrained VAE model')
+parser.add_argument('--output_dir', type=str, default="content/stable_diffusion_weights/bfn", help='Output directory to save model and samples')
 parser.add_argument('--revision', type=str, default='fp16', help='Revision')
 parser.add_argument('--with_prior_preservation', action='store_true', help='Use prior preservation')
 parser.add_argument('--prior_loss_weight', type=float, default=1.0, help='Weight for prior loss')
@@ -64,8 +64,8 @@ parser.add_argument('--concepts_list', type=str, default='concepts_list.json', h
 
 parser.add_argument('--object_name', type=str, default='bfn', help='Name of the object')
 parser.add_argument('--model_name', type=str, default='runwayml/stable-diffusion-v1-5', help='Name or path to the pretrained model')
-parser.add_argument('--output_dir', type=str, default='content/', help='Output directory to save model and samples')
-parser.add_argument('--input_image_dir', type=str, default='images', help='Input image folder')
+#parser.add_argument('--output_dir', type=str, default='content/', help='Output directory to save model and samples')
+parser.add_argument('--input_image_dir', type=str, default='bear', help='Input image folder')
 
 args = parser.parse_args()
 
