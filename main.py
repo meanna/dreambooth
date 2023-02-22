@@ -11,8 +11,10 @@
 from clearml import Task
 
 # note: you need "clearml==0.17.6rc1"
-Task.add_requirements("./diffusers")
-Task.add_requirements('requirements.txt')
+#Task.add_requirements("./diffusers")
+#accelerate
+Task.add_requirements("accelerate")
+#Task.add_requirements('requirements.txt')
 
 
 task = Task.init(
